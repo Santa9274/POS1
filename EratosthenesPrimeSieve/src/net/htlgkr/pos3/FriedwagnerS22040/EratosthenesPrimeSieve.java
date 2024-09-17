@@ -5,16 +5,13 @@ import java.sql.Array;
 public class EratosthenesPrimeSieve
 {
     private int limit;
-    boolean[] primes = new boolean[limit];
+    boolean[] primes;
 
-    public EratosthenesPrimeSieve(int limit) {
-        this.limit = limit;
-    }
-
-    public boolean isPrime(int p)
+    public EratosthenesPrimeSieve(int limit)
     {
-        //alles auf false
-        for (int i = 2; i <= p; i++) {
+        primes = new boolean[limit];
+
+        for (int i = 2; i <= limit; i++) {
             primes[i] = true;
         }
 
@@ -27,11 +24,19 @@ public class EratosthenesPrimeSieve
                 }
             }
         }
-        
+    }
+
+
+    public boolean isPrime(int limit)
+    {
+        return primes[limit];
     }
 
     public void printPrime()
     {
-
+        for (int i = 0; i < primes.length; i++)
+        {
+            if (primes[i]) System.out.println(primes[i] + " ");
+        }
     }
 }
