@@ -2,14 +2,13 @@ package net.htlgkr.pos3.FriedwagnerS22040;
 
 import java.sql.Array;
 
-public class EratosthenesPrimeSieve
+public class EratosthenesPrimeSieve implements PrimeSiev
 {
-    private int limit;
     boolean[] primes;
 
     public EratosthenesPrimeSieve(int limit)
     {
-        primes = new boolean[limit];
+        primes = new boolean[limit+1];
 
         for (int i = 2; i <= limit; i++) {
             primes[i] = true;
@@ -34,9 +33,9 @@ public class EratosthenesPrimeSieve
 
     public void printPrime()
     {
-        for (int i = 0; i < primes.length; i++)
+        for (int i = 2; i < primes.length; i++)
         {
-            if (primes[i]) System.out.println(primes[i] + " ");
+            if (primes[i]) System.out.print(i + " ");
         }
     }
 }
